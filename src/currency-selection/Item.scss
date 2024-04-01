@@ -1,0 +1,29 @@
+@use './CurrencySelection.scss' as main;
+
+.CurrencySelection_item {
+    border-radius: 0.3em;
+    background-color: #fff;
+    width: 5em;
+    border: 1px solid main.$primaryColor; 
+    padding: 0.2em 0.6em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    user-select: none;
+
+    &:hover {
+        outline: 3px solid #ffe484;
+    }
+
+    input[type='checkbox'] {
+        cursor: pointer;
+        margin-right: 0.5em;
+    }
+}
+
+.CurrencySelection_item__all {
+    background-color: main.$primaryColor; 
+    color: #fff;
+}

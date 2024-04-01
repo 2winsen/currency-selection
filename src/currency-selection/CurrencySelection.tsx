@@ -1,45 +1,69 @@
 import { Item } from "./Item";
 import { SelectedItem } from "./SelectedItem";
-import style from "./CurrencySelection.module.scss";
-import cn from "classnames";
+import "./CurrencySelection.scss";
 
 interface CurrencySelectionProps {
   selectedItems: string[];
   allItems: string[];
-  onAdd: (item: string) => void;
-  onRemove: (item: string) => void;
+  allSelector: boolean;
+  onChange: (selected: string[]) => void;
 }
 
 export function CurrencySelection({
   selectedItems = [],
   allItems = [],
-  onRemove,
-  onAdd,
+  allSelector,
+  onChange,
 }: CurrencySelectionProps) {
-  function handleToggle(item: string) {
+  function handleChange(item: string) {
+    let updatedSelectedItems: string[] = [];
     if (selectedItems.includes(item)) {
-      onRemove(item);
+      updatedSelectedItems = remove(selectedItems, item);
     } else {
-      onAdd(item);
+      updatedSelectedItems = add(selectedItems, item);
+    }
+    onChange(updatedSelectedItems);
+  }
+
+  function add(selectedItems: string[], item: string) {
+    return [...selectedItems, item];
+  }
+
+  function remove(selectedItems: string[], item: string) {
+    return selectedItems.filter((x) => x !== item);
+  }
+
+  function handleChangeAll() {
+    if (selectedItems.length === allItems.length) {
+      onChange([]);
+    } else {
+      onChange([...allItems]);
     }
   }
 
   return (
-    <div className={style.container}>
-      <section className={style.itemsContainer}>
+    <div className="CurrencySelection">
+      <section className="CurrencySelection_itemsContainer">
         {selectedItems.map((item) => (
-          <SelectedItem key={item} label={item} onRemove={onRemove} />
+          <SelectedItem key={item} label={item} onRemove={handleChange} />
         ))}
       </section>
-      <section className={style.itemsContainer}>
+      <section className="CurrencySelection_itemsContainer">
+        {allSelector ? (
+          <Item
+            label="All"
+            onToggle={handleChangeAll}
+            selected={allItems.length === selectedItems.length}
+            className="CurrencySelection_item__all"
+          />
+        ) : null}
         {allItems.map((item) => {
-          const selected = selectedItems.includes(item);
           return (
             <Item
               key={item}
               label={item}
-              onToggle={handleToggle}
-              className={cn({ [style.selected]: selected })}
+              onToggle={handleChange}
+              selected={selectedItems.includes(item)}
             />
           );
         })}

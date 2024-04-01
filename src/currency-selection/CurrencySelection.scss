@@ -1,0 +1,15 @@
+$primaryColor: #8d00ff;
+
+.CurrencySelection {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.CurrencySelection_itemsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em 1em;
+}

@@ -26,12 +26,9 @@ function App() {
 
   const [selected, setSelected] = useState<string[]>([]);
 
-  function handleAdd(item: string) {
-    setSelected((selected) => [...selected, item]);
-  }
-
-  function handleRemove(item: string) {
-    setSelected((selected) => selected.filter((x) => x !== item));
+  function handleChange(selectedItems: string[]) {
+    setSelected(selectedItems);
+    console.log(selectedItems);
   }
 
   return (
@@ -39,8 +36,8 @@ function App() {
       <CurrencySelection
         allItems={top20Currencies}
         selectedItems={selected}
-        onAdd={handleAdd}
-        onRemove={handleRemove}
+        onChange={handleChange}
+        allSelector={true}
       />
     </div>
   );

@@ -1,3 +1,5 @@
+import "./SelectedItem.scss";
+
 interface SelectedItemProps {
   label: string;
   onRemove: (item: string) => void;
@@ -9,9 +11,14 @@ export function SelectedItem({ label, onRemove }: SelectedItemProps) {
   }
 
   return (
-    <div>
+    <div className="CurrencySelection_item CurrencySelection_selectedItem">
       {label}
-      <span onClick={handleClick}>X</span>
+      <span
+        onClick={handleClick}
+        className="CurrencySelection_selectedItem__close"
+      >
+        &times;
+      </span>
     </div>
   );
 }

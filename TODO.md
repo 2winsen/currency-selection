@@ -1,0 +1,9 @@
+- item as string or id and label
+- cooler styling
+- jest
+- playwright
+- animations
+- responsiveness
+- rerenders
+- groups
+- theme change

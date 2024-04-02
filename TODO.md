@@ -2,12 +2,12 @@ DONE
 
 - cooler styling
 - groups
+- jest
 
 TODO
 
 - animations
 - item as string or id and label
-- jest
 - playwright
 - responsiveness
 - rerenders

@@ -46,12 +46,18 @@ export function CurrencySelection({
 
   return (
     <div className="CurrencySelection animationBlock" ref={parentRef}>
-      <section className="CurrencySelection_itemsContainer">
+      <section
+        className="CurrencySelection_itemsContainer"
+        data-testid="CurrencySelection_selectedItemsContainer"
+      >
         {selectedItems.map((item) => (
           <SelectedItem key={item} label={item} onRemove={handleChange} />
         ))}
       </section>
-      <section className="CurrencySelection_itemsContainer">
+      <section
+        className="CurrencySelection_itemsContainer"
+        data-testid="CurrencySelection_allItemsContainer"
+      >
         {allSelector ? (
           <Item
             label="All"

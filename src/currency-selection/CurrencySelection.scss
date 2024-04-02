@@ -13,3 +13,7 @@ $primaryColor: #8d00ff;
     flex-wrap: wrap;
     gap: 0.5em 1em;
 }
+
+.animationBlock * {
+    animation-duration: 0s !important;
+}

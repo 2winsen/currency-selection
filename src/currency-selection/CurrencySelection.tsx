@@ -1,6 +1,7 @@
 import { Item } from "./Item";
 import { SelectedItem } from "./SelectedItem";
 import "./CurrencySelection.scss";
+import { useUnblockAnimations } from "./hooks";
 
 interface CurrencySelectionProps {
   selectedItems: string[];
@@ -41,8 +42,10 @@ export function CurrencySelection({
     }
   }
 
+  const parentRef = useUnblockAnimations<HTMLDivElement>();
+
   return (
-    <div className="CurrencySelection">
+    <div className="CurrencySelection animationBlock" ref={parentRef}>
       <section className="CurrencySelection_itemsContainer">
         {selectedItems.map((item) => (
           <SelectedItem key={item} label={item} onRemove={handleChange} />

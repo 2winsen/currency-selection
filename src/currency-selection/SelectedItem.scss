@@ -6,6 +6,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    animation: appearKeyframes 0.2s ease-in;
+
 
     .CurrencySelection_selectedItem__close {
         cursor: pointer;
@@ -17,4 +19,16 @@
         }
     }
 
+}
+
+@keyframes appearKeyframes {
+    from {
+        transform: translateY(40%);
+        opacity: 0;
+      }
+    
+      to {
+        transform: translateY(0%);
+        opacity: 1;
+      }
 }

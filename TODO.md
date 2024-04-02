@@ -1,9 +1,17 @@
-- item as string or id and label
+DONE
+
 - cooler styling
+- groups
+
+TODO
+
+- animations
+- item as string or id and label
 - jest
 - playwright
-- animations
 - responsiveness
 - rerenders
-- groups
+
+NEW IDEAS
+
 - theme change

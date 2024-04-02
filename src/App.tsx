@@ -24,7 +24,7 @@ function App() {
     "ZAR", // South African Rand
   ];
 
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(["USD", "EUR"]);
 
   function handleChange(selectedItems: string[]) {
     setSelected(selectedItems);
